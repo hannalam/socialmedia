@@ -1,0 +1,45 @@
+<!--I wrote this code-->
+
+{% extends 'users/base.html' %}
+{% load static %}
+{% block body %}
+    <div class="flex mt-5 p-5 justify-center">
+        <h2 class="text-3xl font-normal mr-4 mb-2 text-gray-700">Posts</h2>
+    
+        <div class="grid mx-10 p-10 grid-cols-1">
+        {% for state in status %}
+        <!-- Card starts here -->
+        <br href="#">
+            <div class="rounded overflow-hidden w-[370px] h-[370px] bg-white shadow-lg">
+                <div class="user-container flex mx-5 my-5">
+                    <img class="h-12 rounded-full" src="{{profile.photo.url}}" alt="">
+                    <div class="mx-2 my-2 font-bold"><span class="text-blue-800">{{state.user}}</span></div>
+                </div>
+
+                <div>
+                    <div class="font-bold text-gray-800 text-l mb-1 px-6">{{state.title}}</div>
+                    <img class="h-80 px-4" src="{{state.image.url}}" alt="">
+                </div>
+
+                <div class="px-6 py-1">
+                    <div class="icon-container flex gap-3">
+                        <img class="w-7 h-7" src="{% static 'users/images/like.png' %}">
+                        <img class="w-7 h-7" src="{% static 'users/images/comment.png' %}">
+                        <img class="w-7 h-7" src="{% static 'users/images/share.png' %}">
+                    </div>
+                </div>
+
+                <div class="px-6 py-2">
+                    <p class="text-gray-900 text-base">{{state.caption}}</p>
+                    <p class="text-gray-900 text-base">{{state.date}}</p>
+                </div>
+            </div>
+        </br>
+        </a>
+        <!-- Card ends here -->
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+<!-- end of code I wrote-->

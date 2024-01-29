@@ -1,0 +1,40 @@
+<!--I wrote this code-->
+
+{% extends 'users/base.html' %}
+{% block body %}
+<div class="mt-5 p-5 justify-center">
+    <h2 class="text-xl m-5 font-bold">Edit profile😎</h2>
+    <div class="container m-12"> 
+        <!--Render the form to modify the user profile-->
+        <form method="POST" class="bg-white shadow-md m-10 px-10 rounded pt-6 w-4/5" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">First Name:</label>
+                <div class="shadow appearance-once border rounded px-2 px-3 mr-10 text-grey-700">{{ user_form.first_name}}</div>
+            </div>
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Last Name:</label>
+                <div class="shadow appearance-once border rounded px-2 px-3 mr-10 text-grey-700">{{ user_form.last_name}}</div>
+            </div>
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                <div class="shadow appearance-once border rounded px-2 px-3 mr-10 text-grey-700">{{ user_form.email}}</div>
+            </div>
+            <div class="mb-2">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Photo:</label>
+                <div class="shadow appearance-once border rounded px-2 px-3 mr-10 text-grey-700">{{ profile_form.photo}}</div>
+            </div>
+            <button type="submit" class="bg-blue-700 text-white my-5 px-5 py-2">Submit</button>
+        </form>
+    </div>
+
+    <div class="user-container mx-10 my-5">
+        <div class="text-2xl m-5"> Change password😊</div>
+        <div class="mx-2 my-2 font-bold p-3"><a class="text-indigo-700" href="{% url 'password_change' %}">Click to change a new password</a></div>
+    </div>
+</div>    
+    
+    
+{% endblock %}
+
+<!-- end of code I wrote-->
